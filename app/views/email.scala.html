@@ -1,0 +1,25 @@
+@(changeEmailForm:Form[ChangeEmailDetails])(implicit message:Messages, flash:Flash)
+@main("Email Change Page") {
+
+
+<h1 style="text-align:center;">Change Email</h1>
+<br>
+<br>
+<form style="text-align:center" name="changeEmailForm" action="@routes.Authentication.changeEmailSubmitController"
+      method="post">
+    <table class="table table-bordered" style="width:30%;margin-left: auto;margin-right: auto;">
+        <tr>
+            <td>
+                New Email
+            </td>
+            <td>
+                <input type="text" field="@changeEmailForm" name="newEmail" class="form-control">
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Submit" name="submit" class="btn btn-primary">
+    <br><br>
+    <p style="color:red"> @flash.get("error") </p>
+</form>
+
+}

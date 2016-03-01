@@ -1,0 +1,40 @@
+@(loginForm:Form[LoginDetails])(implicit message:Messages , flash: Flash )
+@main("Login Page") {
+<h1 style="text-align:center;">Login Form</h1>
+<br>
+<br>
+@if(flash.get("error" ).isDefined){
+<p style="text-align:center; color:red">@flash.get("error")
+}
+<form name="loginForm" action="@routes.Authentication.submit" method="post" style="text-align:center">
+    <table class="table table-bordered"  style="width:30%;margin-left: auto;margin-right: auto;">
+        <tr >
+            <td>
+                Email:
+            </td>
+            <td>
+                <input type="text" field="@loginForm" name="email" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password:
+            </td>
+            <td>
+                <input type="password" field="@loginForm" name="password" class="form-control">
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="submit" name="submit" class="btn btn-primary">
+    <br>
+</form>
+<div>
+<form name="forgotPassword" action="@routes.Authentication.forgotPasswordController" method="get" style="text-align:center">
+    <input type="submit" value="Forgot Password" name="submit" class="btn btn-link">
+</form>
+<form name="signupForm" action="@routes.Authentication.signUpController" method="get" style="text-align:center">
+    <input type="submit" value="Sign-Up" name="signupForm" class="btn btn-link">
+</form>
+</div>
+
+}

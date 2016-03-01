@@ -1,0 +1,42 @@
+@(signupForm:Form[SignupDetails])(implicit message:Messages,flash:Flash)
+@main("Signup Page") {
+
+
+<h1 style="text-align:center;">Sign Up</h1>
+<br>
+<br>
+<form name="signupForm" action="@routes.Authentication.signupSubmitController" method="POST" style="text-align:center">
+    <table class="table table-bordered" style="width:30%;margin-left: auto;margin-right: auto;">
+        <tr >
+            <td>
+                Email:
+            </td>
+            <td>
+                <input type="text" field="@signupForm" name="email" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <td>
+               Password:
+            </td>
+            <td>
+                <input type="password" field="@signupForm" name="password" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <td>
+               Repeat Password:
+            </td>
+            <td>
+                <input type="password" field="@signupForm" name="confirmPassword" class="form-control">
+            </td>
+        </tr>
+
+    </table>
+    <p style="color:red">@flash.get("error")</p>
+
+    <input type="submit" value="Submit" name="submit" class="btn btn-primary">
+    <br>
+</form>
+
+}

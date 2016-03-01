@@ -1,0 +1,24 @@
+@(loginForm:Form[LoginDetails])(implicit message:Messages,request: RequestHeader, flash:Flash)
+@main("Details Page") {
+<br>
+<br>
+<div style="margin-left:40%">
+    <p style="color:blue;font-size:14;margin-left:10px;">Welcome @request.session.get("email").flatMap(username =>Some(username))
+    </p>
+    <form name="changeEmailForm" action="@routes.Authentication.changeEmailController" method="get">
+        <input type="submit" value="Change your Email Id" class="btn btn-link">
+    </form>
+    <p style="color:purple;"> @flash.get("success")</p>
+    <form name="changePasswordForm" action="@routes.Authentication.changePasswordController" method="get">
+    <input type="submit" value="Change Password" class="btn btn-link">
+    </form>
+    <br><br><br><br>
+    <form name="logoutForm" action="@routes.Authentication.logoutController" method="get">
+        <input type="submit" value="Logout" class="btn btn-primary">
+    </form>
+    <br>
+    <h2>Account Remove</h2>
+    <h6>Would no longer be able to access the account</h6><br>
+    <a href="">Delete</a>
+</div>
+}
